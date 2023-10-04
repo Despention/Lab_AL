@@ -16,15 +16,15 @@ struct LinkedList {
 
     void addAtHead(int val) {
         Node* newNode = new Node(val);
-        newNode->next = head;
+        (*newNode).next = head;
         head = newNode;
     }
 
     void printList() {
         Node* current = head;
         while (current != nullptr) {
-            cout << current->val << " ";
-            current = current->next;
+            cout << (*current).val << " ";
+            current = (*current).next;
         }
         cout << endl;
     }
@@ -35,8 +35,8 @@ struct LinkedList {
         Node* next = nullptr;
         
         while (current != nullptr) {
-            next = current->next; 
-            current->next = prev; 
+            next = (*current).next; 
+            (*current).next = prev; 
             prev = current; 
             current = next; 
         }
@@ -57,11 +57,11 @@ int main() {
         list.addAtHead(randomValue);
     }
     
-    cout << "Èçíà÷àëüíûé ëèñò:\n ";
+    cout << "Ð˜Ð·Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð»Ð¸ÑÑ‚\n ";
     list.printList(); 
     
     list.reverse(); 
     
-    cout << "Ïåðåâåðíóòûé ëèñò:\n ";
+    cout << "ÐŸÐµÑ€ÐµÐ²ÐµÑ€Ð½ÑƒÑ‚Ñ‹Ð¹ Ð»Ð¸ÑÑ‚:\n ";
     list.printList(); 
 }
