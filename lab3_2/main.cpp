@@ -1,5 +1,6 @@
 #include "Stack.h"
 #include <iostream>
+using namespace std;
 
 int main() {
     Stack<int> stack;
@@ -8,12 +9,12 @@ int main() {
     stack.push(2);
     stack.push(3);
 
-    std::cout << "Top of the stack: " << stack.top() << std::endl;
+    cout << "Top of the stack: " << stack.top() << endl;
 
     stack.pop();
-    std::cout << "Popped the top element." << std::endl;
+    cout << "Popped the top element." << endl;
 
-    std::cout << "Is the stack empty? " << (stack.isEmpty() ? "Yes" : "No") << std::endl;
+    cout << "Is the stack empty? " << (stack.isEmpty() ? "Yes" : "No") << endl;
 
     return 0;
 }
