@@ -1,46 +1,40 @@
-cpp
 #include "Stack.h"
+#include <stdexcept>
 
-template <typename T>
-Stack<T>::Stack() {
+Stack::Stack() {
     topNode = nullptr;
 }
 
-template <typename T>
-Stack<T>::~Stack() {
+Stack::~Stack() {
     while (!isEmpty()) {
         pop();
     }
 }
 
-template <typename T>
-bool Stack<T>::isEmpty() const {
+bool Stack::isEmpty() const {
     return topNode == nullptr;
 }
 
-template <typename T>
-void Stack<T>::push(T item) {
-    ListNode<T>* newNode = new ListNode<T>(item);
+void Stack::push(int item) {
+    ListNode<int>* newNode = new ListNode<int>(item);
     newNode->next = topNode;
     topNode = newNode;
 }
 
-template <typename T>
-T Stack<T>::pop() {
+int Stack::pop() {
     if (isEmpty()) {
         throw std::out_of_range("Stack is empty");
     }
 
-    ListNode<T>* temp = topNode;
-    T item = temp->data;
+    ListNode<int>* temp = topNode;
+    int item = temp->data;
     topNode = topNode->next;
     delete temp;
 
     return item;
 }
 
-template <typename T>
-T Stack<T>::top() const {
+int Stack::top() const {
     if (isEmpty()) {
         throw std::out_of_range("Stack is empty");
     }
