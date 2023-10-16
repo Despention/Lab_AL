@@ -1,13 +1,11 @@
-cpp
 #ifndef STACK_H
 #define STACK_H
 
 #include "ListNode.h"
 
-template <typename T>
 class Stack {
 private:
-    ListNode<T>* topNode;
+    ListNode<int>* topNode;
 
 public:
     Stack();
@@ -15,9 +13,9 @@ public:
 
     bool isEmpty() const;
 
-    void push(T item);
-    T pop();
-    T top() const;
+    void push(int item);
+    int pop();
+    int top() const;
 };
 
 #endif
